@@ -82,6 +82,12 @@
       keymap() {
         const results = {}
         results[this.ctrlOrCmd('p')] = () => this.quickSearchShown = true
+        if (this.$config.isMac) {
+          results['alt+s'] = (event) => {
+            event.preventDefault()
+            this.toggleSidebar()
+          }
+        }
         return results
       },
       splitElements() {
